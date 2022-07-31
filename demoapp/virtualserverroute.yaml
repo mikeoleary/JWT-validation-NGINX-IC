@@ -1,0 +1,24 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServerRoute
+metadata:
+  name: headers
+  namespace: f5demoapp
+spec:
+  host: demo.my-f5.com
+  upstreams:
+  - name: demo
+    service: f5-demo-httpd
+    port: 8080
+  subroutes:
+  - path: /headers
+    policies:
+    - name: jwtpolicy
+    action:
+      proxy:
+        upstream: demo
+        requestHeaders:
+          set:
+          - name: X-jwt-claim-name
+            value: ${jwt_claim_name}
+    location-snippets: | 
+      auth_jwt_require $valid_user;

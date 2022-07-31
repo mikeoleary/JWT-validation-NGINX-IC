@@ -1,0 +1,10 @@
+apiVersion: k8s.nginx.org/v1
+kind: Policy
+metadata:
+  name: jwtpolicy
+  namespace: f5demoapp
+spec:
+  jwt:
+    secret: jwk-secret
+    realm: MyDemo
+    token: $cookie_jwt

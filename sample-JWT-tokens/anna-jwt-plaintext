@@ -1,0 +1,27 @@
+Header:
+{
+"alg": "HS256",
+"typ": "JWT"
+}
+Payload:
+{
+"exp": 1672531199,
+"name": "anna",
+"sub": "cuser",
+"gname": "wheel",
+"guid": "10",
+"fullName": "Anna Gapuz",
+"uname": "agapuz",
+"uid": "223",
+"sudo": true,
+"dept": "IT",
+"url": "http://demo.my-f5.com"
+}
+Signature:
+HMACSHA256(
+base64UrlEncode(header) + "." +
+base64UrlEncode(payload),
+  
+nginx123
+
+) 

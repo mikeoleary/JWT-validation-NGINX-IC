@@ -1,0 +1,15 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-plus-config
+  namespace: nginx-plus-ingress
+data:
+  proxy-connect-timeout: "10s"
+ #proxy-protocol: "True"
+ #real-ip-header: "proxy_protocol"
+ #set-real-ip-from: "0.0.0.0/0"
+  http-snippets: |
+    map $jwt_claim_name $valid_user { 
+      "mike" 1; 
+    }
+

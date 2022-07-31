@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-headers
+  namespace: f5demoapp
+  annotations:
+    nginx.org/mergeable-ingress-type: "minion"
+    nginx.org/location-snippets: |
+      auth_jwt_require $valid_user;
+      proxy_set_header X-jwt-claim-name $jwt_claim_name;
+    nginx.com/jwt-key: "jwk-secret"
+    nginx.com/jwt-realm: "MyDemo"
+    nginx.com/jwt-token: "$cookie_jwt"
+#    nginx.com/jwt-login-url: "https://login.example.com"
+spec:
+  ingressClassName: nginx-plus
+  rules:
+  - host: demo.my-f5.com
+    http:
+      paths:
+      - path: /headers
+        pathType: Prefix
+        backend:
+          service:
+            name: f5-demo-httpd
+            port: 
+              number: 8080

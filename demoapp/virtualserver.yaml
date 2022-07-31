@@ -1,0 +1,18 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: demo
+  namespace: f5demoapp
+spec:
+  host: demo.my-f5.com
+  upstreams:
+  - name: demo
+    service: f5-demo-httpd
+    port: 8080
+  routes:
+  - path: /
+    action:
+      proxy:
+        upstream: demo
+  - path: /headers
+    route: headers
