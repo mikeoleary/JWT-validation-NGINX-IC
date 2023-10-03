@@ -10,7 +10,7 @@ spec:
     service: f5-demo-httpd
     port: 8080
   subroutes:
-  - path: /headers
+  - path: /index.php
     policies:
     - name: jwtpolicy
     action:
@@ -22,3 +22,4 @@ spec:
             value: ${jwt_claim_name}
     location-snippets: | 
       auth_jwt_require $valid_user;
+      proxy_set_header X-jwt-claim-groups $jwt_groups;

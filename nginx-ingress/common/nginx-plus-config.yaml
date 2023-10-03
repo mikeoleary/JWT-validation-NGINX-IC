@@ -10,6 +10,6 @@ data:
  #set-real-ip-from: "0.0.0.0/0"
   http-snippets: |
     map $jwt_claim_name $valid_user { 
-      "mike" 1; 
+      "Michael O'Leary" 1; 
     }
-
+    auth_jwt_claim_set $jwt_groups groups; # here, we are setting a variable that will be a string, separated by commas. It is populated by the groups claim from the JWT which is an array.

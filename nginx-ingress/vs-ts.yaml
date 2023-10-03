@@ -6,7 +6,7 @@ metadata:
   name: nginx-plus-ingress-ts1
   namespace: nginx-plus-ingress
 spec:
-  virtualServerAddress: "10.0.0.79"
+  virtualServerAddress: "20.22.107.0"
   virtualServerPort: 80
   virtualServerName: nginx-plus-1
   mode: standard

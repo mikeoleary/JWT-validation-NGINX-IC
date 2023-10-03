@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
         - name: f5-demo-httpd
-          image: f5devcentral/f5-demo-httpd:openshift
+#          image: f5devcentral/f5-demo-httpd:openshift
+          image: f5devcentral/f5-hello-world
           ports:
             - containerPort: 80
               protocol: TCP

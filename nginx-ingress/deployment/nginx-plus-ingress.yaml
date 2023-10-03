@@ -21,6 +21,7 @@ spec:
       - name: docker-login
       containers:
       - image: ghcr.io/mikeoleary/nginx-plus-ingress:2.3.0-SNAPSHOT-979db22
+#      - image: moleary.azurecr.io/nginx/nginx-plus-ingress:latest  
         imagePullPolicy: IfNotPresent
         name: nginx-ingress
         ports:

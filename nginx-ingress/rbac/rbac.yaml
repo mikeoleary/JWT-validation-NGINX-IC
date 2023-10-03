@@ -86,6 +86,7 @@ rules:
   - ingressclasses
   verbs:
   - get
+  - list
 - apiGroups:
     - cis.f5.com
   resources:

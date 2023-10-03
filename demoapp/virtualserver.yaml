@@ -14,5 +14,5 @@ spec:
     action:
       proxy:
         upstream: demo
-  - path: /headers
+  - path: /index.php
     route: headers
